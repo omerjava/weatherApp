@@ -1,0 +1,64 @@
+<div
+  class="main p-4"
+  [style]="forecast.current_weather.weathercode | weatherBackground"
+>
+  <div
+    class="container text-center p-4 shadow-lg"
+    style="background-color: white; opacity: 0.9; margin-top: 15vh;"
+  >
+    <div class="row">
+      <div class="col fw-bold fs-1">{{ currentCity.name }}</div>
+    </div>
+    <div class="row">
+      <div class="col">
+        {{ forecast.current_weather.weathercode | weathercode }}
+      </div>
+    </div>
+    <div class="row m-2">
+      <div class="col fs-4 text-danger">Today</div>
+    </div>
+    <div class="row m-1">
+      <div class="col fs-5 fw-bold">{{ forecast.current_weather.temperature }}</div>
+    </div>
+    <div class="row">
+      <div class="col fw-bold my-2" *ngFor="let day of forecast.daily.time">
+        <div>{{ day | date }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" *ngFor="let code of forecast.daily.weathercode">
+        <img [src]="code | weatherIcon" alt="icon" width="60px" height="50px" />
+      </div>
+    </div>
+    <div class="row">
+      <div
+        class="col"
+        *ngFor="let maxTemp of forecast.daily.temperature_2m_max"
+      >
+        {{ maxTemp }}°
+      </div>
+    </div>
+    <div class="row">
+      <div
+        class="col"
+        *ngFor="let minTemp of forecast.daily.temperature_2m_min"
+      >
+        {{ minTemp }}°
+      </div>
+    </div>
+    {{ errorMessage }}
+  </div>
+  <div class="container text-center p-4 shadow-lg">
+    <select
+      #selectGeneration
+      (ngModelChange)="getWeatherData(selectGeneration.value)"
+      [(ngModel)]="cityDefault
+      "
+      style="width: 40vh; text-align: center;"
+    >
+      <option *ngFor="let city of cities" [value]="city.id">
+        {{ city.name }}
+      </option>
+    </select>
+  </div>
+</div>
