@@ -1,10 +1,18 @@
 # WeatherApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
+## About Project
+
+By using [Open-Meteo](https://open-meteo.com/) public Api, I have developed a simple Weather Application with Angular and Bootstrap.
+Via this app:
+ - You can follow weather info of 9 Belgium cities: Antwerp, Brusssels, Brugge, Charleroi, Hasselt, Leuven, Ghent, Liege, Namur.
+ - You can know temperature of today (now) and max and min temperatures of next 7 days.
+ - According to weather situation background photo and weather icons change.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
 
 ## Code scaffolding
 
